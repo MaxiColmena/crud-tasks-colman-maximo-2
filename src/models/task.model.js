@@ -24,3 +24,14 @@ export const Task = sequelize.define("tasks",{
 },{
         timestamps: false
     });
+
+    // relación de uno a muchos
+    Task.belongsTo(User, {
+        foreignKey: "user_id",
+        as: "user",
+    });
+
+    User.hasMany(Task, {
+        foreignKey: "user_id",
+        as: "tasks"
+    });

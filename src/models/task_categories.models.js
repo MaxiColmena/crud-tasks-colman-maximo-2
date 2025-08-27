@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
-import { Task } from "./task.models.js";
 import { Categories } from "./categories.models.js";
+import { Task } from "./task.model.js";
 
 export const Task_Categories = sequelize.define("Task_Categories", {
   id: {

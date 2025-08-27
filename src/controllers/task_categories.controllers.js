@@ -1,4 +1,4 @@
-import taskCategoriesRouter from "../routes/task_categories.routes.js";
+import { Task_Categories } from "../models/task_categories.models.js";
 
 //Creacion de una TaskCategory
 export const taskCategoryCreate = async (req, res) => {
@@ -13,7 +13,7 @@ export const taskCategoryCreate = async (req, res) => {
 
 
         //Creacion de la categoria
-        const taskCategory = await TaskCategoriesModel.create(req.body)
+        const taskCategory = await Task_Categories.create(req.body)
         res.status(201).json(taskCategory);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -25,7 +25,7 @@ export const taskCategoryCreate = async (req, res) => {
 export const getAllTaskCategories = async (req, res) => {
     try {
         //Trae todos los usuarios con sus tareas asociadas
-        const taskCategories = await TaskCategoriesModel.findAll();
+        const taskCategories = await Task_Categories.findAll();
 
         if (taskCategories.length === 0) return res.status(404).json({ errormessage: "No hay taskCategories en la base de datos" });
 
@@ -39,7 +39,7 @@ export const getAllTaskCategories = async (req, res) => {
 export const getTaskCategoryById = async (req, res) => {
     try {
         //Trae todos los usuarios con sus tareas asociadas
-        const taskCategory = await TaskCategoriesModel.findByPk(req.params.id);
+        const taskCategory = await Task_Categories.findByPk(req.params.id);
         if (taskCategory) {
             res.status(200).json(taskCategory)
         } else {

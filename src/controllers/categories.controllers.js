@@ -1,4 +1,4 @@
-import categoriesRouter from "../routes/categories.routes.js";
+import { categoriesRouter } from "../routes/categories.routes.js";
 
 //Creacion de una categoria
 export const createNewCategory = async (req, res) => {
